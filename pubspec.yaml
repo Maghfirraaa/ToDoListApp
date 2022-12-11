@@ -46,6 +46,7 @@ dependencies:
   # rflutter_alert: ^2.0.4
   email_validator: ^2.1.17
   rflutter_alert: ^2.0.4
+  hexcolor: ^2.0.7
 
 dev_dependencies:
   flutter_test:

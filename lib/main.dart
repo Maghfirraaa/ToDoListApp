@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todolistapp/splashscreen.dart';
-import 'SharedPref.dart';
+import 'package:todolistapp/view/HomePage.dart';
+import 'package:todolistapp/view/landing.dart';
+import 'package:todolistapp/view/splashscreen.dart';
+import 'package:todolistapp/view/SharedPref.dart';
 
 Future<void> main() async {
   // runApp(const MyApp());
@@ -35,6 +37,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(setTheme: setTheme),
+      // home: landingPage(setTheme: setTheme),
     );
   }
 }

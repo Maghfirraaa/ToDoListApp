@@ -2,61 +2,48 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:todolistapp/login.dart';
+import 'package:todolistapp/view/login.dart';
+import 'package:todolistapp/model/todo.dart';
 
 import '../model/model.dart';
 
 class Service {
-  static Future<Map<String, dynamic>> getDataHome() async {
+  static Future<List<Data>> getDataHome() async {
     Dio dio = Dio();
     var response = await dio.get('http://10.0.2.2:3000/data');
+
     print('status code : ${response.statusCode}');
     var dataResponse = response.data;
+    //print(dataResponse);
 
-    return dataResponse;
+    List<Data> datas =
+        (response.data as List).map((e) => Data.fromJson(e)).toList();
+    return datas;
   }
-//   static Future<List> getDataHome() async {
-//     Dio dio = Dio();
-//     var response = await dio.get('http://10.0.2.2:3000/data');
-//     List<dynamic> data =
-//         (response.data['data'] as List).map((v) => Data.fromJson(v)).toList();
 
-//     // Ramene.fromJson(response.data['data'])
-//     return data;
-//   }
+  static Future<List<Todo>> getDataTodo() async {
+    Dio dio = Dio();
+    var response = await dio.get('http://10.0.2.2:3000/Todo');
+
+    print('status code : ${response.statusCode}');
+    var dataResponse = response.data;
+    //print(dataResponse);
+
+    List<Todo> datatodo =
+        (response.data as List).map((e) => Todo.fromJson(e)).toList();
+    return datatodo;
+  }
+
+  static Future<List<Todo>> getDataid(String id) async {
+    Dio dio = Dio();
+    var response = await dio.get('http://10.0.2.2:3000/Todo?id=' + id);
+
+    print('status code : ${response.statusCode}');
+    var dataResponse = response.data;
+    //print(dataResponse);
+
+    List<Todo> datatodo =
+        (response.data as List).map((e) => Todo.fromJson(e)).toList();
+    return datatodo;
+  }
 }
-// void register(String nama, email, password, BuildContext context) async {
-//   try {
-//     var response = await Dio().post('http://10.0.2.2:3000/user',
-//         data: {"nama": nama, "email": email, "password": password});
-//     if (response.statusCode == 201) {
-//       print("Account created successfully");
-//       AlertDialog alert = AlertDialog(
-//         title: Text("Registrasi Berhasil"),
-//         content: Container(
-//           child: Text("Selamat Anda Berhasil Registrasi akun"),
-//         ),
-//         actions: [
-//           TextButton(
-//             child: Text("OK"),
-//             onPressed: () => Navigator.push(context,  MaterialPageRoute(
-//                     builder: (context) =>
-//                         LoginPage(setTheme: widget.setTheme))),
-//             // Navigator.push(
-//             //     context,
-//             //     MaterialPageRoute(
-//             //         builder: (context) =>
-//             //             landingPage(setTheme: widget.setTheme)));
-//           ),
-//         ],
-//       );
-
-//       showDialog(context: context, builder: (context) => alert);
-//       return;
-//     } else {
-//       print("Failed");
-//     }
-//   } catch (e) {
-//     print(e);
-//   }
-// }
