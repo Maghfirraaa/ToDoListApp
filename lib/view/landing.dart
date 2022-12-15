@@ -50,7 +50,6 @@ class _landingPageState extends State<landingPage> {
   late List<Widget> container = [
     homePage(setTheme: setTheme),
     todoApp(),
-    // ProfilePage(setTheme: setTheme),
     ProfilePage(setTheme: setTheme, user: widget.user)
     // Catalog(),
     // Catalog(param: param),
@@ -60,13 +59,13 @@ class _landingPageState extends State<landingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        // centerTitle: true,
         backgroundColor: Colors.blue[400],
+        automaticallyImplyLeading: false,
         title: const Text(
           "ToDoListApp",
           style: TextStyle(color: Colors.white),
         ),
-        // automaticallyImplyLeading: false,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.brightness_4_rounded,
@@ -80,37 +79,37 @@ class _landingPageState extends State<landingPage> {
         ],
       ),
       body: container[_bottomNavCurrentIndex],
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('ToDoListApp'),
-            ),
-            // ListTile(
-            //     leading: Icon(Icons.settings),
-            //     title: const Text('pengaturan'),
-            //     onTap: () => print('Tap Trash menu')),
-            new Divider(),
-            ListTile(
-              leading: Icon(Icons.exit_to_app),
-              trailing: new Icon(Icons.cancel),
-              title: const Text('LOGOUT'),
-              onTap: () {
-                // Navigator.of(context).pop();
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const onboarding()));
-              },
-            ),
-          ],
-        ),
-      ),
+      // drawer: Drawer(
+      //   child: ListView(
+      //     // Important: Remove any padding from the ListView.
+      //     padding: EdgeInsets.zero,
+      //     children: [
+      //       const DrawerHeader(
+      //         decoration: BoxDecoration(
+      //           color: Colors.blue,
+      //         ),
+      //         child: Text('ToDoListApp'),
+      //       ),
+      //       // ListTile(
+      //       //     leading: Icon(Icons.settings),
+      //       //     title: const Text('pengaturan'),
+      //       //     onTap: () => print('Tap Trash menu')),
+      //       new Divider(),
+      //       ListTile(
+      //         leading: Icon(Icons.exit_to_app),
+      //         trailing: new Icon(Icons.cancel),
+      //         title: const Text('LOGOUT'),
+      //         onTap: () {
+      //           // Navigator.of(context).pop();
+      //           Navigator.pushReplacement(
+      //               context,
+      //               MaterialPageRoute(
+      //                   builder: (context) => const onboarding()));
+      //         },
+      //       ),
+      //     ],
+      //   ),
+      // ),
       bottomNavigationBar: BottomNavyBar(
         selectedIndex: _bottomNavCurrentIndex,
         showElevation: true,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 import 'package:todolistapp/view/login.dart';
+import 'package:todolistapp/view/onboarding.dart';
 
 class ProfilePage extends StatefulWidget {
   Function setTheme;
@@ -71,11 +73,35 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
           SizedBox(
-            height: 120,
+            height: 140,
           ),
-          SizedBox(
-            height: 40,
-          )
+          Builder(
+            builder: (context) => RaisedButton(
+              onPressed: () {
+                setState(() {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => onboarding()));
+                });
+              },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              color: Colors.red,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(130, 15, 130, 15),
+                child: Text(
+                  "Logout",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
         ],
       );
 

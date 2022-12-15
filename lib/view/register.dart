@@ -32,51 +32,6 @@ class _RegisterPageState extends State<RegisterPage> {
             context,
             MaterialPageRoute(
                 builder: (context) => LoginPage(setTheme: widget.setTheme)));
-
-        // AlertDialog alert = AlertDialog(
-        //   title: Text("Registrasi Berhasil"),
-        //   content: Container(
-        //     child: Text("Selamat Anda Berhasil Registrasi akun"),
-        //   ),
-        //   actions: [
-        //     TextButton(
-        //       child: Text("OK"),
-        //       onPressed: () => Navigator.push(
-        //           context,
-        //           MaterialPageRoute(
-        //               builder: (context) =>
-        //                   LoginPage(setTheme: widget.setTheme))),
-        //       // Navigator.push(
-        //       //     context,
-        //       //     MaterialPageRoute(
-        //       //         builder: (context) =>
-        //       //             landingPage(setTheme: widget.setTheme)));
-        //     ),
-        //   ],
-        // );
-
-        // showDialog(context: context, builder: (context) => alert);
-        // Alert(
-        //     context: context,
-        //     title: 'Registrasi Berhasil',
-        //     desc: 'Selamat Anda Berhasil Registrasi akun',
-        //     type: AlertType.success,
-        //     buttons: [
-        //       DialogButton(
-        //           child: Text('ok',
-        //               style: TextStyle(color: Colors.white, fontSize: 18)),
-        //           onPressed: () {
-        //             setState(() {
-        //               register(controllerName.text, controllerEmail.text,
-        //                   controllerPass.text, context);
-        //             });
-        //             Navigator.pop(context);
-        //           })
-        //     ]).show();
-
-        //   return;
-        // } else {
-        //   print("Failed");
       }
     } catch (e) {
       print(e);

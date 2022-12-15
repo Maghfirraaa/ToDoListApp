@@ -22,7 +22,7 @@ class _todoAppState extends State<todoApp> {
       var response =
           await Dio().post('http://10.0.2.2:3000/Todo', data: {"todo": todo});
       if (response.statusCode == 201) {
-        print("Account created successfully");
+        print("todo created successfully");
       } else {
         print("Failed");
       }
@@ -35,7 +35,7 @@ class _todoAppState extends State<todoApp> {
     try {
       var response = await Dio().delete('http://10.0.2.2:3000/Todo/' + id);
       if (response.data.length > 0) {
-        print("Delete account successfully");
+        print("Delete todo successfully");
       } else {
         print("Failed");
       }
@@ -106,11 +106,6 @@ class _todoAppState extends State<todoApp> {
                                                   ElevatedButton(
                                                     onPressed: () {
                                                       setState(() {
-                                                        // mylist.replaceRange(
-                                                        //     index,
-                                                        //     index + 1,
-                                                        //     {output});
-
                                                         update(
                                                             snapshot
                                                                 .data![index].id

@@ -89,8 +89,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Image.asset(
               'image/image.png',
-              width: 156,
-              height: 85,
+              width: 250,
+              height: 120,
             ),
             SizedBox(
               height: 30,
@@ -113,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 50,
             ),
             Form(
               key: _formKey,
@@ -167,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                   //   controlAffinity: ListTileControlAffinity.leading,
                   // ),
                   const SizedBox(
-                    height: 50,
+                    height: 100,
                   ),
                   ElevatedButton(
                     onPressed: () {
